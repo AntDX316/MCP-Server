@@ -1,17 +1,25 @@
 # MCP Server for Cursor
 
-A Model Context Protocol (MCP) server implementation for Cursor IDE integration, providing tools and services through SSE (Server-Sent Events).
+A Model Context Protocol (MCP) server implementation for Cursor IDE integration, providing a modern web dashboard and tools through SSE (Server-Sent Events) and WebSocket connections.
 
 ## Features
 
+- Real-time connection monitoring with WebSocket support
+- Modern web dashboard for server management
 - SSE-based communication with Cursor IDE
 - Built-in test tool for verifying connectivity
 - Google Drive integration for file management
 - Extensible architecture for adding new tools
+- Connection history visualization
+- Client management interface
+- Service configuration UI
+- Customizable server settings
 
 ## Prerequisites
 
 - Python 3.8 or higher
+- Node.js 18 or higher
+- npm (Node.js package manager)
 - pip (Python package manager)
 - Cursor IDE
 
@@ -23,75 +31,99 @@ git clone <repository-url>
 cd MCP-Server
 ```
 
-2. Install Python dependencies:
+2. Install dependencies:
 ```bash
+# Install all dependencies (both backend and frontend)
+npm run install-all
+
+# Or install separately:
+# Backend dependencies
 pip install -r requirements.txt
+
+# Frontend dependencies
+cd frontend
+npm install
+cd ..
 ```
-
-## Running the Server
-
-Start the MCP server:
-```bash
-python mcp_server.py
-```
-
-The server will start on `http://localhost:8765` with the following endpoints:
-- SSE endpoint: `http://localhost:8765/sse`
-- Tool invocation: `http://localhost:8765/invoke/{tool_name}`
-
-## Configuring Cursor IDE
-
-1. Open Cursor IDE
-2. Click on the "MCP Servers" section in the sidebar
-3. Click "+ Add new MCP server"
-4. Configure the server:
-   - Name: `MCP-Server`
-   - Type: `sse`
-   - Server URL: `http://localhost:8765/sse`
-5. Click "Save"
-
-## Available Tools
-
-### Test Tool
-A simple tool to verify the MCP connection is working.
-- Name: `test`
-- Parameters:
-  - `message`: String to echo back
-
-### Google Drive Tool
-Manage files in Google Drive.
-- Name: `google_drive`
-- Operations:
-  - `list`: List files in a folder
-  - `upload`: Upload a new file
-  - `create_folder`: Create a new folder
-  - `delete`: Delete a file or folder
-- Parameters vary by operation (see schema in code)
 
 ## Development
+
+Start the development servers:
+```bash
+# Start both backend and frontend in development mode
+npm run dev   # This will start both servers concurrently
+```
+
+The servers will start at:
+- Backend: `http://localhost:8765`
+- Frontend: `http://localhost:3000` (or `3001` if port 3000 is in use)
+
+You can also start the servers separately:
+```bash
+# Backend (in one terminal)
+python mcp_server.py
+
+# Frontend (in another terminal)
+cd frontend
+npm run dev
+```
+
+The development servers provide:
+- Hot reloading for frontend changes
+- Automatic proxy of API requests to the backend
+- WebSocket connection handling
+- Concurrent backend and frontend development
+
+If you're running other applications that use port 3000, the frontend will automatically try port 3001 and increment until it finds an available port. The actual URL will be displayed in the terminal when you run `npm run dev`.
 
 ### Project Structure
 ```
 MCP-Server/
-├── mcp_server.py      # Main server implementation
-├── services.py        # Service management
-├── config.py          # Configuration handling
-├── database.py        # Database operations
-├── requirements.txt   # Python dependencies
-└── service_handlers/  # Tool implementations
+├── frontend/                # Frontend application
+│   ├── src/                # Source code
+│   │   ├── api/           # API clients
+│   │   ├── pages/         # React components
+│   │   └── main.tsx       # Entry point
+│   ├── package.json       # Frontend dependencies
+│   └── vite.config.ts     # Vite configuration
+├── mcp_server.py          # Main server implementation
+├── services.py            # Service management
+├── test_client.py         # Test client implementation
+├── requirements.txt       # Python dependencies
+├── package.json           # Root package.json
+└── services_config.json   # Service configurations
 ```
 
-### Adding New Tools
+### Available Endpoints
 
-1. Create a new handler in `service_handlers/`
-2. Add tool configuration to `TOOLS` in `mcp_server.py`
-3. Implement the tool's logic in the `/invoke/{tool_name}` endpoint
+#### HTTP Endpoints
+- `/api/status` - Get server status
+- `/api/connections/history` - Get connection history
+- `/api/clients` - Get active clients
+- `/api/services/{service_id}` - Service configuration
+- `/api/settings` - Server settings
 
-### Configuration
+#### WebSocket Endpoint
+- `/ws/{client_id}` - Real-time updates and ping/pong
 
-Server settings can be modified in:
-- `config.json`: General server configuration
-- `services_config.json`: Tool-specific settings
+#### SSE Endpoint
+- `/sse` - Server-Sent Events for Cursor IDE
+
+### Tool Endpoints
+- `/invoke/test` - Test tool
+- `/invoke/google_drive` - Google Drive operations
+
+## Production Deployment
+
+Build and start the production server:
+```bash
+# Build frontend and start production server
+npm run prod
+
+# Or build frontend separately:
+npm run build
+python mcp_server.py
+```
 
 ## Configuration
 
@@ -101,53 +133,68 @@ Server settings can be modified in:
 cp services_config.template.json services_config.json
 ```
 
-2. Update `services_config.json` with your credentials:
+2. Update `services_config.json` with your service credentials:
    - For Google Drive:
      - Create a project in Google Cloud Console
      - Enable the Google Drive API
      - Create OAuth 2.0 credentials
      - Add your `client_id` and `client_secret`
 
-### Security Notes
-- Never commit `services_config.json` to version control
-- Keep your API credentials private
-- The template file (`services_config.template.json`) is safe to commit
-- Use environment variables for production deployments
+### Server Settings
+Configure server settings through the web dashboard:
+- Debug mode
+- SSL settings
+- Connection limits
+- Ping timeout
+- Protocol settings
+
+## Testing
+
+Test the server using the provided test client:
+```bash
+python test_client.py
+```
+
+The test client will:
+- Connect to both SSE and WebSocket endpoints
+- Send periodic pings
+- Test available tools
+- Monitor connection status
 
 ## Troubleshooting
 
 1. **Connection Issues**
-   - Ensure the server is running (`python mcp_server.py`)
-   - Verify the URL in Cursor is `http://localhost:8765/sse`
-   - Check the server logs for connection attempts
+   - Check both backend and frontend logs
+   - Verify the WebSocket connection in browser DevTools
+   - Ensure the proxy settings in `vite.config.ts` are correct
+   - Check for port conflicts
 
-2. **No Tools Available**
-   - Verify tools are enabled in `services_config.json`
-   - Restart the server after configuration changes
-   - Check the server logs for tool initialization
+2. **Frontend Issues**
+   - Clear browser cache
+   - Check browser console for errors
+   - Verify Node.js and npm versions
+   - Check for TypeScript compilation errors
 
-3. **Port Conflicts**
-   - If port 8765 is in use, modify the port in `config.json`
-   - Kill any existing Python processes if needed
-   - Update the Cursor connection URL accordingly
-
-## Logs
-
-Server logs are written to:
-- Console output
-- `mcp_server.log` file
+3. **Backend Issues**
+   - Check `mcp_server.log` for errors
+   - Verify Python dependencies are installed
+   - Check port availability
+   - Ensure service configurations are valid
 
 ## Security Notes
 
-- The server accepts all origins (CORS `*`)
-- No authentication required for local development
-- Google Drive integration requires valid credentials
+- The server accepts all origins (CORS `*`) in development
+- WebSocket connections use client IDs for basic identification
+- Service credentials are stored in `services_config.json`
+- Environment variables should be used for sensitive data in production
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
-3. Submit a pull request
+3. Make your changes
+4. Run tests
+5. Submit a pull request
 
 ## License
 
