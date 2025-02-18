@@ -7,7 +7,9 @@ import json
 import asyncio
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+from collections import deque
+import database as db
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -29,13 +31,30 @@ class ConnectionManager:
     def __init__(self):
         self.active_connections: Dict[str, WebSocket] = {}
         self.client_info: Dict[str, dict] = {}
+        self.start_time = datetime.now(timezone.utc)
+        self.update_task = None
+
+    async def start_history_tracking(self):
+        """Start the connection history tracking task"""
+        self.update_task = asyncio.create_task(self._update_connection_history())
+
+    async def _update_connection_history(self):
+        """Background task to update connection history"""
+        while True:
+            current_connections = len(self.active_connections)
+            current_time = datetime.now(timezone.utc)
+            # Store in database with current time
+            db.add_connection_record(current_connections, current_time)
+            # Clean up old records
+            db.cleanup_old_records()
+            await asyncio.sleep(10)  # Update every 10 seconds instead of every minute
 
     async def connect(self, websocket: WebSocket, client_id: str):
         await websocket.accept()
         self.active_connections[client_id] = websocket
         self.client_info[client_id] = {
-            "connected_at": datetime.utcnow().isoformat(),
-            "last_ping": datetime.utcnow().isoformat()
+            "connected_at": datetime.now(timezone.utc).isoformat(),
+            "last_ping": datetime.now(timezone.utc).isoformat()
         }
         logger.info(f"Client {client_id} connected")
 
@@ -56,7 +75,42 @@ class ConnectionManager:
             for client_id, info in self.client_info.items()
         ]
 
+    def get_connection_history(self) -> List[dict]:
+        # Get history from database
+        history = db.get_connection_history()
+        
+        # Return the raw data without aggregation
+        return [
+            {
+                "time": entry["timestamp"],
+                "connections": int(entry["connections"])  # Ensure integer values
+            }
+            for entry in history
+        ]
+
+    def get_uptime(self) -> str:
+        uptime = datetime.now(timezone.utc) - self.start_time
+        days = uptime.days
+        hours, remainder = divmod(uptime.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        
+        parts = []
+        if days > 0:
+            parts.append(f"{days}d")
+        if hours > 0:
+            parts.append(f"{hours}h")
+        if minutes > 0:
+            parts.append(f"{minutes}m")
+        parts.append(f"{seconds}s")
+        
+        return " ".join(parts)
+
 manager = ConnectionManager()
+
+@app.on_event("startup")
+async def startup_event():
+    """Start background tasks when the application starts"""
+    await manager.start_history_tracking()
 
 # WebSocket endpoint for MCP connections
 @app.websocket("/ws/{client_id}")
@@ -70,7 +124,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                 # Handle different message types here
                 if message.get("type") == "ping":
                     await websocket.send_json({"type": "pong"})
-                    manager.client_info[client_id]["last_ping"] = datetime.utcnow().isoformat()
+                    manager.client_info[client_id]["last_ping"] = datetime.now(timezone.utc).isoformat()
                 else:
                     # Echo back the message for now
                     await websocket.send_text(data)
@@ -99,8 +153,9 @@ async def get_status():
     return {
         "status": "running",
         "active_clients": len(manager.active_connections),
-        "uptime": "placeholder",  # TODO: Implement uptime tracking
-        "version": "1.0.0"
+        "uptime": manager.get_uptime(),
+        "version": "1.0.0",
+        "connection_history": manager.get_connection_history()
     }
 
 # Serve static files (will be used for the React frontend)

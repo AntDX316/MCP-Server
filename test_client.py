@@ -3,7 +3,7 @@ import websockets
 import json
 import uuid
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ class MCPClient:
         if self.websocket:
             message = {
                 "type": "ping",
-                "timestamp": datetime.utcnow().isoformat()
+                "timestamp": datetime.now(timezone.utc).isoformat()
             }
             await self.websocket.send(json.dumps(message))
 
