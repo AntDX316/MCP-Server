@@ -10,9 +10,16 @@ import os
 from datetime import datetime, timezone, timedelta
 from collections import deque
 import database as db
+import config as cfg
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
+# Load configuration
+config = cfg.Config()
+
+# Configure logging based on debug mode
+logging.basicConfig(
+    level=logging.DEBUG if config.server.debug else logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="MCP Server", description="ModelContextProtocol Server with Web UI")
@@ -138,9 +145,41 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
         manager.disconnect(client_id)
 
 # REST API endpoints for configuration
-class ConfigurationUpdate(BaseModel):
-    setting_name: str
-    value: str
+class ServerSettingsUpdate(BaseModel):
+    host: str
+    port: int
+    debug: bool
+    max_connections: int
+    ping_timeout: int
+    ssl_enabled: bool
+    ssl_cert_path: Optional[str]
+    ssl_key_path: Optional[str]
+
+class MCPSettingsUpdate(BaseModel):
+    protocol_version: str
+    max_context_length: int
+    default_temperature: float
+    max_tokens: int
+
+class SettingsUpdate(BaseModel):
+    server: ServerSettingsUpdate
+    mcp: MCPSettingsUpdate
+
+@app.post("/api/settings")
+async def update_settings(settings: SettingsUpdate):
+    """Update server and MCP settings"""
+    try:
+        # Update server settings
+        config.update_server_config(settings.server.dict())
+        
+        # Update MCP settings
+        config.update_mcp_config(settings.mcp.dict())
+        
+        logger.info("Settings updated successfully")
+        return {"status": "success", "message": "Settings updated successfully"}
+    except Exception as e:
+        logger.error(f"Error updating settings: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/clients")
 async def get_clients():
@@ -172,4 +211,35 @@ app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static"
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    
+    logger.info(f"Starting server on {config.server.host}:{config.server.port}")
+    logger.info(f"Debug mode: {'enabled' if config.server.debug else 'disabled'}")
+    logger.info(f"SSL: {'enabled' if config.server.ssl_enabled else 'disabled'}")
+    
+    if config.server.ssl_enabled:
+        if not config.server.ssl_cert_path or not config.server.ssl_key_path:
+            logger.error("SSL is enabled but certificate or key path is missing!")
+            exit(1)
+        if not os.path.exists(config.server.ssl_cert_path):
+            logger.error(f"SSL certificate file not found: {config.server.ssl_cert_path}")
+            exit(1)
+        if not os.path.exists(config.server.ssl_key_path):
+            logger.error(f"SSL key file not found: {config.server.ssl_key_path}")
+            exit(1)
+            
+        logger.info("Starting server with SSL enabled")
+        uvicorn.run(
+            app,
+            host=config.server.host,
+            port=config.server.port,
+            ssl_keyfile=config.server.ssl_key_path,
+            ssl_certfile=config.server.ssl_cert_path,
+            log_level="debug" if config.server.debug else "info"
+        )
+    else:
+        uvicorn.run(
+            app,
+            host=config.server.host,
+            port=config.server.port,
+            log_level="debug" if config.server.debug else "info"
+        ) 
