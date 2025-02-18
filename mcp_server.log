@@ -1,0 +1,2215 @@
+2025-02-18 14:14:15,208 - INFO - Starting MCP Server with tools:
+2025-02-18 14:14:15,208 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:14:15,338 - INFO - Received SSE request from Address(host='127.0.0.1', port=59087)
+2025-02-18 14:14:15,342 - INFO - New SSE connection established
+2025-02-18 14:14:15,342 - INFO - Sending capabilities message:
+2025-02-18 14:14:15,343 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:15,343 - INFO - Received SSE request from Address(host='127.0.0.1', port=59088)
+2025-02-18 14:14:15,344 - INFO - Received SSE request from Address(host='127.0.0.1', port=59089)
+2025-02-18 14:14:15,344 - INFO - Received SSE request from Address(host='127.0.0.1', port=59086)
+2025-02-18 14:14:15,345 - INFO - New SSE connection established
+2025-02-18 14:14:15,345 - INFO - Sending capabilities message:
+2025-02-18 14:14:15,346 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:15,346 - INFO - New SSE connection established
+2025-02-18 14:14:15,346 - INFO - Sending capabilities message:
+2025-02-18 14:14:15,347 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:15,347 - INFO - New SSE connection established
+2025-02-18 14:14:15,347 - INFO - Sending capabilities message:
+2025-02-18 14:14:15,348 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:15,750 - INFO - Received SSE request from Address(host='127.0.0.1', port=59091)
+2025-02-18 14:14:15,750 - INFO - New SSE connection established
+2025-02-18 14:14:15,750 - INFO - Sending capabilities message:
+2025-02-18 14:14:15,751 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,152 - INFO - Received SSE request from Address(host='127.0.0.1', port=59092)
+2025-02-18 14:14:16,152 - INFO - New SSE connection established
+2025-02-18 14:14:16,152 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,152 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,153 - INFO - Received SSE request from Address(host='127.0.0.1', port=59093)
+2025-02-18 14:14:16,153 - INFO - Received SSE request from Address(host='127.0.0.1', port=59094)
+2025-02-18 14:14:16,154 - INFO - New SSE connection established
+2025-02-18 14:14:16,154 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,155 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,155 - INFO - New SSE connection established
+2025-02-18 14:14:16,155 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,156 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,156 - INFO - Received SSE request from Address(host='127.0.0.1', port=59095)
+2025-02-18 14:14:16,157 - INFO - New SSE connection established
+2025-02-18 14:14:16,157 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,157 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,308 - INFO - Received SSE request from Address(host='127.0.0.1', port=59096)
+2025-02-18 14:14:16,308 - INFO - Received SSE request from Address(host='127.0.0.1', port=59097)
+2025-02-18 14:14:16,309 - INFO - New SSE connection established
+2025-02-18 14:14:16,309 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,309 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,310 - INFO - New SSE connection established
+2025-02-18 14:14:16,310 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,310 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,311 - INFO - Received SSE request from Address(host='127.0.0.1', port=59098)
+2025-02-18 14:14:16,311 - INFO - New SSE connection established
+2025-02-18 14:14:16,312 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,312 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,313 - INFO - Received SSE request from Address(host='127.0.0.1', port=59099)
+2025-02-18 14:14:16,313 - INFO - New SSE connection established
+2025-02-18 14:14:16,314 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,314 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:16,751 - INFO - Received SSE request from Address(host='127.0.0.1', port=59103)
+2025-02-18 14:14:16,753 - INFO - New SSE connection established
+2025-02-18 14:14:16,753 - INFO - Sending capabilities message:
+2025-02-18 14:14:16,753 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:17,197 - INFO - Received SSE request from Address(host='127.0.0.1', port=59105)
+2025-02-18 14:14:17,198 - INFO - New SSE connection established
+2025-02-18 14:14:17,198 - INFO - Sending capabilities message:
+2025-02-18 14:14:17,198 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:17,520 - INFO - Received SSE request from Address(host='127.0.0.1', port=59107)
+2025-02-18 14:14:17,521 - INFO - New SSE connection established
+2025-02-18 14:14:17,521 - INFO - Sending capabilities message:
+2025-02-18 14:14:17,521 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:18,110 - INFO - Received SSE request from Address(host='127.0.0.1', port=59108)
+2025-02-18 14:14:18,110 - INFO - New SSE connection established
+2025-02-18 14:14:18,111 - INFO - Sending capabilities message:
+2025-02-18 14:14:18,111 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:14:45,362 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:45.362963\"}"}
+2025-02-18 14:14:45,362 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:45.362963\"}"}
+2025-02-18 14:14:45,363 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:45.362963\"}"}
+2025-02-18 14:14:45,363 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:45.363963\"}"}
+2025-02-18 14:14:45,765 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:45.765153\"}"}
+2025-02-18 14:14:46,168 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.168858\"}"}
+2025-02-18 14:14:46,169 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.169362\"}"}
+2025-02-18 14:14:46,169 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.169362\"}"}
+2025-02-18 14:14:46,170 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.170369\"}"}
+2025-02-18 14:14:46,320 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.320824\"}"}
+2025-02-18 14:14:46,320 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.320824\"}"}
+2025-02-18 14:14:46,321 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.321827\"}"}
+2025-02-18 14:14:46,321 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.321827\"}"}
+2025-02-18 14:14:46,751 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:46.751920\"}"}
+2025-02-18 14:14:47,186 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:47.186214\"}"}
+2025-02-18 14:14:47,511 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:47.511615\"}"}
+2025-02-18 14:14:48,132 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:14:48.132421\"}"}
+2025-02-18 14:14:59,755 - INFO - Received SSE request from Address(host='127.0.0.1', port=59239)
+2025-02-18 14:14:59,756 - INFO - New SSE connection established
+2025-02-18 14:14:59,756 - INFO - Sending capabilities message:
+2025-02-18 14:14:59,756 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:28,639 - INFO - Starting MCP Server with tools:
+2025-02-18 14:16:28,639 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:16:29,629 - INFO - Received SSE request from Address(host='127.0.0.1', port=59690)
+2025-02-18 14:16:29,634 - INFO - New SSE connection established
+2025-02-18 14:16:29,635 - INFO - Sending capabilities message:
+2025-02-18 14:16:29,635 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:30,701 - INFO - Received SSE request from Address(host='127.0.0.1', port=59694)
+2025-02-18 14:16:30,702 - INFO - New SSE connection established
+2025-02-18 14:16:30,702 - INFO - Sending capabilities message:
+2025-02-18 14:16:30,702 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:31,180 - INFO - Received SSE request from Address(host='127.0.0.1', port=59696)
+2025-02-18 14:16:31,181 - INFO - New SSE connection established
+2025-02-18 14:16:31,181 - INFO - Sending capabilities message:
+2025-02-18 14:16:31,181 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,542 - INFO - Received SSE request from Address(host='127.0.0.1', port=59723)
+2025-02-18 14:16:40,543 - INFO - New SSE connection established
+2025-02-18 14:16:40,543 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,543 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,544 - INFO - Received SSE request from Address(host='127.0.0.1', port=59724)
+2025-02-18 14:16:40,544 - INFO - New SSE connection established
+2025-02-18 14:16:40,545 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,545 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,545 - INFO - Received SSE request from Address(host='127.0.0.1', port=59725)
+2025-02-18 14:16:40,545 - INFO - Received SSE request from Address(host='127.0.0.1', port=59726)
+2025-02-18 14:16:40,545 - INFO - Received SSE request from Address(host='127.0.0.1', port=59727)
+2025-02-18 14:16:40,547 - INFO - Received SSE request from Address(host='127.0.0.1', port=59728)
+2025-02-18 14:16:40,547 - INFO - Received SSE request from Address(host='127.0.0.1', port=59729)
+2025-02-18 14:16:40,547 - INFO - Received SSE request from Address(host='127.0.0.1', port=59730)
+2025-02-18 14:16:40,549 - INFO - New SSE connection established
+2025-02-18 14:16:40,549 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,549 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,550 - INFO - New SSE connection established
+2025-02-18 14:16:40,550 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,550 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,552 - INFO - New SSE connection established
+2025-02-18 14:16:40,552 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,552 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,553 - INFO - New SSE connection established
+2025-02-18 14:16:40,553 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,553 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,554 - INFO - New SSE connection established
+2025-02-18 14:16:40,554 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,554 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,554 - INFO - New SSE connection established
+2025-02-18 14:16:40,554 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,555 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,555 - INFO - Received SSE request from Address(host='127.0.0.1', port=59731)
+2025-02-18 14:16:40,556 - INFO - Received SSE request from Address(host='127.0.0.1', port=59732)
+2025-02-18 14:16:40,556 - INFO - Received SSE request from Address(host='127.0.0.1', port=59733)
+2025-02-18 14:16:40,556 - INFO - Received SSE request from Address(host='127.0.0.1', port=59734)
+2025-02-18 14:16:40,556 - INFO - Received SSE request from Address(host='127.0.0.1', port=59735)
+2025-02-18 14:16:40,557 - INFO - Received SSE request from Address(host='127.0.0.1', port=59736)
+2025-02-18 14:16:40,557 - INFO - Received SSE request from Address(host='127.0.0.1', port=59737)
+2025-02-18 14:16:40,558 - INFO - Received SSE request from Address(host='127.0.0.1', port=59738)
+2025-02-18 14:16:40,558 - INFO - Received SSE request from Address(host='127.0.0.1', port=59739)
+2025-02-18 14:16:40,559 - INFO - New SSE connection established
+2025-02-18 14:16:40,559 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,559 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,560 - INFO - New SSE connection established
+2025-02-18 14:16:40,560 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,560 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,561 - INFO - New SSE connection established
+2025-02-18 14:16:40,561 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,561 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,562 - INFO - New SSE connection established
+2025-02-18 14:16:40,562 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,563 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,563 - INFO - New SSE connection established
+2025-02-18 14:16:40,563 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,564 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,565 - INFO - New SSE connection established
+2025-02-18 14:16:40,565 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,565 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,565 - INFO - New SSE connection established
+2025-02-18 14:16:40,565 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,565 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,566 - INFO - New SSE connection established
+2025-02-18 14:16:40,566 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,567 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,568 - INFO - New SSE connection established
+2025-02-18 14:16:40,568 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,568 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:40,569 - INFO - Received SSE request from Address(host='127.0.0.1', port=59740)
+2025-02-18 14:16:40,569 - INFO - New SSE connection established
+2025-02-18 14:16:40,569 - INFO - Sending capabilities message:
+2025-02-18 14:16:40,570 - INFO - {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)",
+              "optional": true
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)",
+              "optional": true
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)",
+              "optional": true
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)",
+              "optional": true
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true
+      }
+    ]
+  }
+}
+2025-02-18 14:16:59,644 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:16:59.644324\"}"}
+2025-02-18 14:17:00,726 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:00.726428\"}"}
+2025-02-18 14:17:01,190 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:01.190952\"}"}
+2025-02-18 14:17:10,563 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.563039\"}"}
+2025-02-18 14:17:10,563 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.563594\"}"}
+2025-02-18 14:17:10,563 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.563594\"}"}
+2025-02-18 14:17:10,563 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.563594\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.565110\"}"}
+2025-02-18 14:17:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.566662\"}"}
+2025-02-18 14:17:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.566662\"}"}
+2025-02-18 14:17:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.566662\"}"}
+2025-02-18 14:17:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.566662\"}"}
+2025-02-18 14:17:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.567670\"}"}
+2025-02-18 14:17:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.567670\"}"}
+2025-02-18 14:17:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.567670\"}"}
+2025-02-18 14:17:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "2", "data": "{\"timestamp\": \"2025-02-18T14:17:10.567670\"}"}
+2025-02-18 14:17:29,654 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:29.654840\"}"}
+2025-02-18 14:17:30,738 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:30.738843\"}"}
+2025-02-18 14:17:31,189 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:31.189263\"}"}
+2025-02-18 14:17:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.573485\"}"}
+2025-02-18 14:17:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.573485\"}"}
+2025-02-18 14:17:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.573485\"}"}
+2025-02-18 14:17:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.573485\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.574993\"}"}
+2025-02-18 14:17:40,576 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.576541\"}"}
+2025-02-18 14:17:40,576 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.576541\"}"}
+2025-02-18 14:17:40,576 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.576541\"}"}
+2025-02-18 14:17:40,577 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.577094\"}"}
+2025-02-18 14:17:40,577 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.577094\"}"}
+2025-02-18 14:17:40,577 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.577094\"}"}
+2025-02-18 14:17:40,577 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.577094\"}"}
+2025-02-18 14:17:40,577 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "3", "data": "{\"timestamp\": \"2025-02-18T14:17:40.577094\"}"}
+2025-02-18 14:17:59,664 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:17:59.664441\"}"}
+2025-02-18 14:18:00,749 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:00.749255\"}"}
+2025-02-18 14:18:01,180 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:01.180601\"}"}
+2025-02-18 14:18:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.565208\"}"}
+2025-02-18 14:18:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.565714\"}"}
+2025-02-18 14:18:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.565714\"}"}
+2025-02-18 14:18:10,565 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.565714\"}"}
+2025-02-18 14:18:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.566719\"}"}
+2025-02-18 14:18:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.566719\"}"}
+2025-02-18 14:18:10,566 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.566719\"}"}
+2025-02-18 14:18:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.567724\"}"}
+2025-02-18 14:18:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.567724\"}"}
+2025-02-18 14:18:10,567 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.567724\"}"}
+2025-02-18 14:18:10,595 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.595685\"}"}
+2025-02-18 14:18:10,595 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.595685\"}"}
+2025-02-18 14:18:10,595 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.595685\"}"}
+2025-02-18 14:18:10,595 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.595685\"}"}
+2025-02-18 14:18:10,597 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.597191\"}"}
+2025-02-18 14:18:10,597 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.597191\"}"}
+2025-02-18 14:18:10,597 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.597191\"}"}
+2025-02-18 14:18:10,598 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "4", "data": "{\"timestamp\": \"2025-02-18T14:18:10.597191\"}"}
+2025-02-18 14:18:29,670 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:29.670230\"}"}
+2025-02-18 14:18:30,779 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:30.779001\"}"}
+2025-02-18 14:18:31,178 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:31.178766\"}"}
+2025-02-18 14:18:40,571 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.571691\"}"}
+2025-02-18 14:18:40,572 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.572291\"}"}
+2025-02-18 14:18:40,572 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.572291\"}"}
+2025-02-18 14:18:40,572 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.572291\"}"}
+2025-02-18 14:18:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.573297\"}"}
+2025-02-18 14:18:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.573297\"}"}
+2025-02-18 14:18:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.573297\"}"}
+2025-02-18 14:18:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.573297\"}"}
+2025-02-18 14:18:40,573 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.573297\"}"}
+2025-02-18 14:18:40,574 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.574801\"}"}
+2025-02-18 14:18:40,617 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.617849\"}"}
+2025-02-18 14:18:40,618 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.618428\"}"}
+2025-02-18 14:18:40,618 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.618943\"}"}
+2025-02-18 14:18:40,618 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.618943\"}"}
+2025-02-18 14:18:40,618 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.618943\"}"}
+2025-02-18 14:18:40,619 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.619948\"}"}
+2025-02-18 14:18:40,619 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.619948\"}"}
+2025-02-18 14:18:40,619 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "5", "data": "{\"timestamp\": \"2025-02-18T14:18:40.619948\"}"}
+2025-02-18 14:18:59,683 - INFO - Sending heartbeat: {"event": "heartbeat", "id": "6", "data": "{\"timestamp\": \"2025-02-18T14:18:59.683706\"}"}
+2025-02-18 14:25:16,591 - INFO - Starting MCP Server with tools:
+2025-02-18 14:25:16,591 - INFO -   - test (Test)
+2025-02-18 14:25:16,591 - INFO -   - google_drive (Google Drive)
