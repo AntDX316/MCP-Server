@@ -12,18 +12,94 @@ from collections import deque
 import database as db
 import config as cfg
 import services
+from contextlib import asynccontextmanager
+import colorama
+from colorama import Fore, Style
+colorama.init()
 
 # Load configuration
 config = cfg.Config()
 
-# Configure logging based on debug mode
-logging.basicConfig(
-    level=logging.DEBUG if config.server.debug else logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+def format_log_message(record):
+    """Format log messages with colors and better structure"""
+    timestamp = datetime.fromtimestamp(record.created).strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = f"{Fore.CYAN}{timestamp}{Style.RESET_ALL}"
+    
+    level = record.levelname
+    level_color = {
+        'INFO': Fore.GREEN,
+        'WARNING': Fore.YELLOW,
+        'ERROR': Fore.RED,
+        'CRITICAL': Fore.RED + Style.BRIGHT
+    }.get(level, '')
+    level_formatted = f"{level_color}{level:8}{Style.RESET_ALL}"
+    
+    message = record.getMessage()
+    return f"{timestamp} - {level_formatted} - {message}"
 
-app = FastAPI(title="MCP Server", description="ModelContextProtocol Server with Web UI")
+# Configure logging with custom formatter
+class ColoredFormatter(logging.Formatter):
+    def format(self, record):
+        timestamp = datetime.fromtimestamp(record.created).strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = f"{Fore.CYAN}{timestamp}{Style.RESET_ALL}"
+        
+        level = record.levelname
+        level_color = {
+            'INFO': Fore.GREEN,
+            'WARNING': Fore.YELLOW,
+            'ERROR': Fore.RED,
+            'CRITICAL': Fore.RED + Style.BRIGHT
+        }.get(level, '')
+        level_formatted = f"{level_color}{level:8}{Style.RESET_ALL}"
+        
+        message = record.getMessage()
+        return f"{timestamp} - {level_formatted} - {message}"
+
+# Set up root logger
+root = logging.getLogger()
+root.setLevel(logging.INFO)
+
+# Configure our application logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create console handler with custom formatter
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(ColoredFormatter())
+console_handler.setLevel(logging.INFO)
+
+# Remove any existing handlers from all loggers
+root.handlers = []
+logger.handlers = []
+
+# Add console handler to root logger
+root.addHandler(console_handler)
+logger.addHandler(console_handler)
+
+# Configure uvicorn loggers
+for logger_name in ["uvicorn", "uvicorn.error", "uvicorn.access"]:
+    uvicorn_logger = logging.getLogger(logger_name)
+    uvicorn_logger.handlers = []
+    uvicorn_logger.propagate = True
+    uvicorn_logger.setLevel(logging.INFO)
+
+# Set log level for watchfiles logger
+watchfiles_logger = logging.getLogger('watchfiles')
+watchfiles_logger.setLevel(logging.INFO)
+watchfiles_logger.propagate = True
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan events handler"""
+    # Start background tasks
+    await manager.start_history_tracking()
+    yield
+
+app = FastAPI(
+    title="MCP Server", 
+    description="ModelContextProtocol Server with Web UI",
+    lifespan=lifespan
+)
 
 # CORS middleware configuration with explicit methods
 app.add_middleware(
@@ -116,11 +192,6 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-@app.on_event("startup")
-async def startup_event():
-    """Start background tasks when the application starts"""
-    await manager.start_history_tracking()
-
 # WebSocket endpoint for MCP connections
 @app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
@@ -150,18 +221,22 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
 class ServerSettingsUpdate(BaseModel):
     host: str
     port: int
-    debug: bool
     max_connections: int
     ping_timeout: int
-    ssl_enabled: bool
-    ssl_cert_path: Optional[str]
-    ssl_key_path: Optional[str]
+
+class MCPServer(BaseModel):
+    name: str
+    type: str
+    command: str
+    args: List[str]
+    env: Dict[str, str]
 
 class MCPSettingsUpdate(BaseModel):
     protocol_version: str
     max_context_length: int
     default_temperature: float
     max_tokens: int
+    mcpServers: List[MCPServer]
 
 class SettingsUpdate(BaseModel):
     server: ServerSettingsUpdate
@@ -175,19 +250,16 @@ async def get_settings():
         server_config = {
             "host": config.server.host,
             "port": config.server.port,
-            "debug": config.server.debug,
             "max_connections": config.server.max_connections,
-            "ping_timeout": config.server.ping_timeout,
-            "ssl_enabled": config.server.ssl_enabled,
-            "ssl_cert_path": config.server.ssl_cert_path or "",
-            "ssl_key_path": config.server.ssl_key_path or ""
+            "ping_timeout": config.server.ping_timeout
         }
         
         mcp_config = {
             "protocol_version": config.mcp.protocol_version,
             "max_context_length": config.mcp.max_context_length,
             "default_temperature": config.mcp.default_temperature,
-            "max_tokens": config.mcp.max_tokens
+            "max_tokens": config.mcp.max_tokens,
+            "mcpServers": config.mcp.mcpServers
         }
         
         return {
@@ -208,8 +280,16 @@ async def update_settings(settings: SettingsUpdate):
         # Update MCP settings
         config.update_mcp_config(settings.mcp.dict())
         
-        logger.info("Settings updated successfully")
-        return {"status": "success", "message": "Settings updated successfully"}
+        # Only restart if MCP servers configuration changed
+        needs_restart = False
+        if settings.mcp.mcpServers != config.mcp.mcpServers:
+            needs_restart = True
+        
+        return {
+            "status": "success", 
+            "message": "Settings updated successfully",
+            "requiresRestart": needs_restart
+        }
     except Exception as e:
         logger.error(f"Error updating settings: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -306,42 +386,22 @@ async def update_service(service_id: str, config_update: ServiceConfigUpdate):
         logger.error(f"Error updating service {service_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Serve static files (will be used for the React frontend)
-app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static")
+# Only serve static files in production mode
+if os.path.exists("frontend/build"):
+    app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static")
+    logger.info("Serving static files from frontend/build directory")
+else:
+    logger.info("Development mode: Using React development server on port 3000")
 
 if __name__ == "__main__":
     import uvicorn
     
     logger.info(f"Starting server on {config.server.host}:{config.server.port}")
-    logger.info(f"Debug mode: {'enabled' if config.server.debug else 'disabled'}")
-    logger.info(f"SSL: {'enabled' if config.server.ssl_enabled else 'disabled'}")
     
-    if config.server.ssl_enabled:
-        if not config.server.ssl_cert_path or not config.server.ssl_key_path:
-            logger.error("SSL is enabled but certificate or key path is missing!")
-            exit(1)
-        if not os.path.exists(config.server.ssl_cert_path):
-            logger.error(f"SSL certificate file not found: {config.server.ssl_cert_path}")
-            exit(1)
-        if not os.path.exists(config.server.ssl_key_path):
-            logger.error(f"SSL key file not found: {config.server.ssl_key_path}")
-            exit(1)
-            
-        logger.info("Starting server with SSL enabled")
-        uvicorn.run(
-            "server:app",
-            host=config.server.host,
-            port=config.server.port,
-            ssl_keyfile=config.server.ssl_key_path,
-            ssl_certfile=config.server.ssl_cert_path,
-            log_level="debug" if config.server.debug else "info",
-            reload=config.server.debug
-        )
-    else:
-        uvicorn.run(
-            "server:app",
-            host=config.server.host,
-            port=config.server.port,
-            log_level="debug" if config.server.debug else "info",
-            reload=config.server.debug
-        ) 
+    uvicorn.run(
+        "server:app",
+        host=config.server.host,
+        port=config.server.port,
+        log_level="info",
+        reload=True
+    ) 
