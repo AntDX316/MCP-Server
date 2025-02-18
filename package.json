@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"cd frontend && npm start\" \"python server.py\"",
+    "dev": "python mcp_server.py",
     "build": "cd frontend && npm run build",
-    "prod": "cd frontend && npm run build && cd .. && python server.py"
+    "prod": "cd frontend && npm run build && cd .. && python mcp_server.py"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

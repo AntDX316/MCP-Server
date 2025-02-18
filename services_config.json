@@ -7,6 +7,10 @@
         "enabled": false,
         "config": {}
     },
+    "test": {
+        "enabled": true,
+        "config": {}
+    },
     "google_drive": {
         "enabled": true,
         "config": {

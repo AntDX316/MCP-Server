@@ -2213,3 +2213,1279 @@
 2025-02-18 14:25:16,591 - INFO - Starting MCP Server with tools:
 2025-02-18 14:25:16,591 - INFO -   - test (Test)
 2025-02-18 14:25:16,591 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:53:35,921 - INFO - Starting MCP Server with tools:
+2025-02-18 14:53:35,921 - INFO -   - test (Test)
+2025-02-18 14:53:35,921 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:55:28,874 - INFO - Starting MCP Server with tools:
+2025-02-18 14:55:28,874 - INFO -   - test (Test)
+2025-02-18 14:55:28,874 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:55:41,148 - INFO - Starting MCP Server with tools:
+2025-02-18 14:55:41,149 - INFO -   - test (Test)
+2025-02-18 14:55:41,149 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:56:32,827 - INFO - Starting MCP Server with tools:
+2025-02-18 14:56:32,827 - INFO -   - test (Test)
+2025-02-18 14:56:32,828 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:57:29,963 - INFO - Starting MCP Server with tools:
+2025-02-18 14:57:29,963 - INFO -   - test (Test)
+2025-02-18 14:57:29,963 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:58:22,212 - INFO - Starting MCP Server with tools:
+2025-02-18 14:58:22,213 - INFO -   - test (Test)
+2025-02-18 14:58:22,213 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:59:06,594 - INFO - Starting MCP Server with tools:
+2025-02-18 14:59:06,594 - INFO -   - test (Test)
+2025-02-18 14:59:06,594 - INFO -   - google_drive (Google Drive)
+2025-02-18 14:59:20,603 - INFO - Starting MCP Server with tools:
+2025-02-18 14:59:20,603 - INFO -   - test (Test)
+2025-02-18 14:59:20,603 - INFO -   - google_drive (Google Drive)
+2025-02-18 15:00:18,908 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63058)
+2025-02-18 15:00:18,908 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:18,913 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:18,914 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63057)
+2025-02-18 15:00:18,914 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:18,915 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:19,688 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63061)
+2025-02-18 15:00:19,688 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:19,689 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:23,919 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:23.919318\"}"
+}
+2025-02-18 15:00:23,919 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:23.919318\"}"
+}
+2025-02-18 15:00:24,706 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:24.706555\"}"
+}
+2025-02-18 15:00:28,910 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:28.910231\"}"
+}
+2025-02-18 15:00:28,910 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:28.910231\"}"
+}
+2025-02-18 15:00:29,714 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:29.714746\"}"
+}
+2025-02-18 15:00:33,928 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:33.928034\"}"
+}
+2025-02-18 15:00:33,928 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:33.928636\"}"
+}
+2025-02-18 15:00:34,702 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:34.702995\"}"
+}
+2025-02-18 15:00:38,926 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:38.926164\"}"
+}
+2025-02-18 15:00:38,926 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:38.926730\"}"
+}
+2025-02-18 15:00:39,719 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:39.719911\"}"
+}
+2025-02-18 15:00:43,949 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:43.949744\"}"
+}
+2025-02-18 15:00:43,949 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:43.949744\"}"
+}
+2025-02-18 15:00:44,739 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:44.739102\"}"
+}
+2025-02-18 15:00:46,807 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63121)
+2025-02-18 15:00:46,808 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:46,808 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:46,811 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63122)
+2025-02-18 15:00:46,811 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:46,812 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:51,814 - INFO - Starting MCP Server with tools:
+2025-02-18 15:00:51,815 - INFO -   - test (Test)
+2025-02-18 15:00:51,815 - INFO -   - google_drive (Google Drive)
+2025-02-18 15:00:52,832 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63154)
+2025-02-18 15:00:52,833 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:52,838 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:52,838 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63155)
+2025-02-18 15:00:52,838 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:52,839 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63156)
+2025-02-18 15:00:52,839 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:52,840 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:52,840 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:52,842 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63157)
+2025-02-18 15:00:52,842 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:52,843 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:52,843 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63158)
+2025-02-18 15:00:52,843 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:00:52,844 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:00:57,832 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:57.832873\"}"
+}
+2025-02-18 15:00:57,833 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:57.833504\"}"
+}
+2025-02-18 15:00:57,834 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:57.834026\"}"
+}
+2025-02-18 15:00:57,863 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:57.863931\"}"
+}
+2025-02-18 15:00:57,863 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:00:57.863931\"}"
+}
+2025-02-18 15:01:02,833 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:02.833262\"}"
+}
+2025-02-18 15:01:02,833 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:02.833806\"}"
+}
+2025-02-18 15:01:02,833 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:02.833806\"}"
+}
+2025-02-18 15:01:02,879 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:02.879665\"}"
+}
+2025-02-18 15:01:02,879 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:02.879665\"}"
+}
+2025-02-18 15:01:07,849 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:07.849192\"}"
+}
+2025-02-18 15:01:07,849 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:07.849752\"}"
+}
+2025-02-18 15:01:07,849 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:07.849752\"}"
+}
+2025-02-18 15:01:07,894 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:07.894347\"}"
+}
+2025-02-18 15:01:07,894 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:07.894347\"}"
+}
+2025-02-18 15:01:12,869 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:12.869802\"}"
+}
+2025-02-18 15:01:12,869 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:12.869802\"}"
+}
+2025-02-18 15:01:12,870 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:12.870803\"}"
+}
+2025-02-18 15:01:12,916 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:12.916027\"}"
+}
+2025-02-18 15:01:12,916 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:12.916534\"}"
+}
+2025-02-18 15:01:17,884 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:17.884095\"}"
+}
+2025-02-18 15:01:17,884 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:17.884638\"}"
+}
+2025-02-18 15:01:17,884 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:17.884638\"}"
+}
+2025-02-18 15:01:17,929 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:17.929795\"}"
+}
+2025-02-18 15:01:17,930 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:17.929795\"}"
+}
+2025-02-18 15:01:22,903 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:22.903178\"}"
+}
+2025-02-18 15:01:22,903 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:22.903722\"}"
+}
+2025-02-18 15:01:22,903 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:22.903722\"}"
+}
+2025-02-18 15:01:22,934 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:22.934787\"}"
+}
+2025-02-18 15:01:22,935 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:22.934787\"}"
+}
+2025-02-18 15:01:27,895 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:27.895418\"}"
+}
+2025-02-18 15:01:27,895 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:27.895418\"}"
+}
+2025-02-18 15:01:27,896 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:27.896419\"}"
+}
+2025-02-18 15:01:27,941 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:27.941832\"}"
+}
+2025-02-18 15:01:27,941 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:27.941832\"}"
+}
+2025-02-18 15:01:32,892 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:32.892186\"}"
+}
+2025-02-18 15:01:32,892 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:32.892186\"}"
+}
+2025-02-18 15:01:32,892 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:32.892186\"}"
+}
+2025-02-18 15:01:32,939 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:32.939442\"}"
+}
+2025-02-18 15:01:32,939 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:32.939442\"}"
+}
+2025-02-18 15:01:37,889 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:37.888539\"}"
+}
+2025-02-18 15:01:37,889 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:37.889544\"}"
+}
+2025-02-18 15:01:37,889 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:37.889544\"}"
+}
+2025-02-18 15:01:37,965 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:37.965685\"}"
+}
+2025-02-18 15:01:37,965 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:37.965685\"}"
+}
+2025-02-18 15:01:42,902 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:42.902128\"}"
+}
+2025-02-18 15:01:42,902 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:42.902672\"}"
+}
+2025-02-18 15:01:42,902 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:42.902672\"}"
+}
+2025-02-18 15:01:42,980 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:42.980992\"}"
+}
+2025-02-18 15:01:42,980 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:42.980992\"}"
+}
+2025-02-18 15:01:47,892 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:47.892233\"}"
+}
+2025-02-18 15:01:47,892 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:47.892233\"}"
+}
+2025-02-18 15:01:47,893 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:47.893236\"}"
+}
+2025-02-18 15:01:47,984 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:47.984697\"}"
+}
+2025-02-18 15:01:47,984 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:47.984697\"}"
+}
+2025-02-18 15:01:52,913 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:52.913506\"}"
+}
+2025-02-18 15:01:52,913 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:52.913506\"}"
+}
+2025-02-18 15:01:52,914 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:52.914506\"}"
+}
+2025-02-18 15:01:53,007 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:53.007387\"}"
+}
+2025-02-18 15:01:53,007 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:53.007387\"}"
+}
+2025-02-18 15:01:55,498 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63282)
+2025-02-18 15:01:55,499 - INFO - Request headers: {'host': 'localhost:8765', 'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'user-agent': 'Python/3.12 aiohttp/3.9.1'}
+2025-02-18 15:01:55,499 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:01:57,519 - INFO - Tool invocation request for test
+2025-02-18 15:01:57,519 - INFO - Tool parameters: {
+  "arguments": {
+    "message": "Hello from test client!"
+  }
+}
+2025-02-18 15:01:57,907 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:57.907937\"}"
+}
+2025-02-18 15:01:57,908 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:57.908443\"}"
+}
+2025-02-18 15:01:57,908 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:57.908443\"}"
+}
+2025-02-18 15:01:58,014 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:58.014929\"}"
+}
+2025-02-18 15:01:58,014 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:01:58.014929\"}"
+}
+2025-02-18 15:01:59,570 - INFO - Tool invocation request for google_drive
+2025-02-18 15:01:59,570 - INFO - Tool parameters: {
+  "arguments": {
+    "operation": "list"
+  }
+}
+2025-02-18 15:01:59,570 - ERROR - Error invoking tool google_drive: Google Drive service not initialized
+2025-02-18 15:02:00,514 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:00.514159\"}"
+}
+2025-02-18 15:02:02,928 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:02.928187\"}"
+}
+2025-02-18 15:02:02,928 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:02.928693\"}"
+}
+2025-02-18 15:02:02,928 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:02.928693\"}"
+}
+2025-02-18 15:02:03,005 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:03.005392\"}"
+}
+2025-02-18 15:02:03,005 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:03.005392\"}"
+}
+2025-02-18 15:02:07,922 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:07.922759\"}"
+}
+2025-02-18 15:02:07,922 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:07.922759\"}"
+}
+2025-02-18 15:02:07,923 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:07.923760\"}"
+}
+2025-02-18 15:02:07,999 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:07.999915\"}"
+}
+2025-02-18 15:02:07,999 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:07.999915\"}"
+}
+2025-02-18 15:02:12,923 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:12.923742\"}"
+}
+2025-02-18 15:02:12,924 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:12.924277\"}"
+}
+2025-02-18 15:02:12,924 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:12.924803\"}"
+}
+2025-02-18 15:02:13,017 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:13.017169\"}"
+}
+2025-02-18 15:02:13,017 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:13.017169\"}"
+}
+2025-02-18 15:02:13,842 - INFO - Received SSE connection from Address(host='127.0.0.1', port=63324)
+2025-02-18 15:02:13,843 - INFO - Request headers: {'host': 'localhost:8765', 'connection': 'keep-alive', 'accept': 'text/event-stream', 'accept-language': '*', 'sec-fetch-mode': 'cors', 'user-agent': 'node', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'accept-encoding': 'gzip, deflate'}
+2025-02-18 15:02:13,843 - INFO - Sending capabilities: {
+  "type": "capabilities",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "test",
+        "display_name": "Test",
+        "description": "A simple test tool to verify MCP is working",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "Message to echo back"
+            }
+          },
+          "required": [
+            "message"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      },
+      {
+        "name": "google_drive",
+        "display_name": "Google Drive",
+        "description": "Access and manage files in Google Drive",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "type": "string",
+              "description": "Operation to perform",
+              "enum": [
+                "list",
+                "upload",
+                "create_folder",
+                "delete"
+              ]
+            },
+            "folder_id": {
+              "type": "string",
+              "description": "Google Drive folder ID (optional)"
+            },
+            "file_id": {
+              "type": "string",
+              "description": "Google Drive file ID (required for delete operation)"
+            },
+            "content": {
+              "type": "string",
+              "description": "File content for upload (required for upload operation)"
+            },
+            "filename": {
+              "type": "string",
+              "description": "Name of the file (required for upload and create_folder operations)"
+            }
+          },
+          "required": [
+            "operation"
+          ]
+        },
+        "enabled": true,
+        "version": "1.0"
+      }
+    ]
+  }
+}
+2025-02-18 15:02:17,925 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:17.925605\"}"
+}
+2025-02-18 15:02:17,926 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:17.926166\"}"
+}
+2025-02-18 15:02:17,926 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:17.926166\"}"
+}
+2025-02-18 15:02:18,032 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:18.032636\"}"
+}
+2025-02-18 15:02:18,033 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:18.033197\"}"
+}
+2025-02-18 15:02:18,870 - INFO - Sending heartbeat: {
+  "event": "heartbeat",
+  "data": "{\"timestamp\": \"2025-02-18T15:02:18.870978\"}"
+}

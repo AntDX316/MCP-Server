@@ -28,8 +28,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=3600
 )
 
 class ContentType(str, Enum):
@@ -105,14 +107,18 @@ TOOLS = [
 @app.get("/sse")
 async def sse(request: Request):
     """SSE endpoint that sends capabilities and heartbeat messages"""
+    logger.info(f"Received SSE connection from {request.client}")
+    logger.info(f"Request headers: {dict(request.headers)}")
+    
     async def event_generator():
         # Send initial capabilities message
         capabilities = {
             "type": "capabilities",
-            "tools": TOOLS,
-            "resources": [],
-            "prompts": []
+            "capabilities": {
+                "tools": TOOLS
+            }
         }
+        logger.info(f"Sending capabilities: {json.dumps(capabilities, indent=2)}")
         yield {
             "event": "message",
             "data": json.dumps(capabilities)
@@ -122,10 +128,12 @@ async def sse(request: Request):
         while True:
             try:
                 await asyncio.sleep(5)
-                yield {
+                heartbeat = {
                     "event": "heartbeat",
                     "data": json.dumps({"timestamp": datetime.now().isoformat()})
                 }
+                logger.info(f"Sending heartbeat: {json.dumps(heartbeat, indent=2)}")
+                yield heartbeat
             except Exception as e:
                 logger.error(f"Error in event stream: {str(e)}")
                 break
