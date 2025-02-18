@@ -1,0 +1,29 @@
+{
+    "github": {
+        "enabled": false,
+        "config": {}
+    },
+    "slack": {
+        "enabled": false,
+        "config": {}
+    },
+    "test": {
+        "enabled": true,
+        "config": {}
+    },
+    "google_drive": {
+        "enabled": true,
+        "config": {
+            "client_id": "YOUR_GOOGLE_DRIVE_CLIENT_ID",
+            "client_secret": "YOUR_GOOGLE_DRIVE_CLIENT_SECRET"
+        }
+    },
+    "azure": {
+        "enabled": false,
+        "config": {}
+    },
+    "vscode": {
+        "enabled": false,
+        "config": {}
+    }
+} 

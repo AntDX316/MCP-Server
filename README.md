@@ -93,6 +93,27 @@ Server settings can be modified in:
 - `config.json`: General server configuration
 - `services_config.json`: Tool-specific settings
 
+## Configuration
+
+### Initial Setup
+1. Copy the template configuration:
+```bash
+cp services_config.template.json services_config.json
+```
+
+2. Update `services_config.json` with your credentials:
+   - For Google Drive:
+     - Create a project in Google Cloud Console
+     - Enable the Google Drive API
+     - Create OAuth 2.0 credentials
+     - Add your `client_id` and `client_secret`
+
+### Security Notes
+- Never commit `services_config.json` to version control
+- Keep your API credentials private
+- The template file (`services_config.template.json`) is safe to commit
+- Use environment variables for production deployments
+
 ## Troubleshooting
 
 1. **Connection Issues**
