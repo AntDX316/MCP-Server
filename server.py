@@ -11,6 +11,7 @@ from datetime import datetime, timezone, timedelta
 from collections import deque
 import database as db
 import config as cfg
+import services
 
 # Load configuration
 config = cfg.Config()
@@ -24,13 +25,14 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="MCP Server", description="ModelContextProtocol Server with Web UI")
 
-# CORS middleware configuration
+# CORS middleware configuration with explicit methods
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # WebSocket connection manager
@@ -220,6 +222,57 @@ async def disconnect_client(client_id: str):
         return {"status": "success", "message": f"Client {client_id} disconnected"}
     except Exception as e:
         logger.error(f"Error disconnecting client {client_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Define the service config update model
+class ServiceConfigUpdate(BaseModel):
+    enabled: bool
+    config: Optional[Dict[str, str]] = None
+
+@app.get("/api/services")
+async def get_services():
+    """Get all services configuration"""
+    return services.services_manager.get_all_services()
+
+@app.get("/api/services/{service_id}")
+async def get_service(service_id: str):
+    """Get configuration for a specific service"""
+    service_config = services.services_manager.get_service_config(service_id)
+    if service_config is None:
+        raise HTTPException(status_code=404, detail="Service not found")
+    return service_config
+
+@app.put("/api/services/{service_id}")
+async def update_service(service_id: str, config_update: ServiceConfigUpdate):
+    """Update configuration for a specific service"""
+    try:
+        logger.info(f"Updating service {service_id} - enabled: {config_update.enabled}")
+        
+        # Get current service config
+        current_config = services.services_manager.get_service_config(service_id)
+        if current_config is None:
+            logger.warning(f"Service {service_id} not found")
+            raise HTTPException(status_code=404, detail=f"Service {service_id} not found")
+
+        # Update the service
+        updated_config = await services.services_manager.update_service_config(
+            service_id,
+            enabled=config_update.enabled,
+            config=config_update.config or {}
+        )
+        
+        logger.info(f"Service {service_id} updated successfully")
+        return {
+            "status": "success",
+            "message": f"Service {service_id} updated successfully",
+            "enabled": updated_config.enabled,
+            "config": updated_config.config
+        }
+    except ValueError as e:
+        logger.error(f"Invalid configuration for service {service_id}: {str(e)}")
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error(f"Error updating service {service_id}: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 # Serve static files (will be used for the React frontend)

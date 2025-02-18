@@ -1,0 +1,5 @@
+{
+  "mcp.server.enabled": true,
+  "mcp.server.url": "ws://localhost:8000/ws",
+  "mcp.server.autoConnect": true
+}
