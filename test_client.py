@@ -5,7 +5,7 @@ import logging
 from datetime import datetime
 import uuid
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 async def test_sse_connection(url="http://localhost:8765/sse"):
@@ -27,21 +27,30 @@ async def test_sse_connection(url="http://localhost:8765/sse"):
                 while (datetime.now() - start_time).seconds < duration:
                     try:
                         line = await response.content.readline()
-                        if line:
-                            line = line.decode('utf-8').strip()
-                            if line.startswith('data: '):
-                                data = json.loads(line[6:])
-                                if "type" in data and data["type"] == "capabilities":
-                                    logger.info("\n=== Capabilities Message ===")
-                                    for tool in data["capabilities"]["tools"]:
-                                        logger.info(f"Tool: {tool['name']} ({tool['display_name']})")
-                                        logger.info(f"Description: {tool['description']}")
-                                        logger.info("---")
-                                elif "event" in data and data["event"] == "heartbeat":
-                                    heartbeat_data = json.loads(data["data"])
-                                    logger.info(f"Heartbeat received at: {heartbeat_data['timestamp']}")
-                                else:
-                                    logger.info(f"Other message received: {json.dumps(data, indent=2)}")
+                        if not line:
+                            continue
+                            
+                        line = line.decode('utf-8').strip()
+                        logger.debug(f"Raw SSE line: {line}")
+                        
+                        if line.startswith('data: '):
+                            data = json.loads(line[6:])  # Remove 'data: ' prefix
+                            logger.debug(f"Parsed data: {json.dumps(data, indent=2)}")
+                            
+                            if data.get("type") == "capabilities":
+                                logger.info("\n=== Capabilities Message ===")
+                                for tool in data["capabilities"]["tools"]:
+                                    logger.info(f"Tool: {tool['name']} ({tool['display_name']})")
+                                    logger.info(f"Description: {tool['description']}")
+                                    logger.info("---")
+                            elif data.get("type") == "heartbeat":
+                                logger.info(f"Heartbeat received at: {data['timestamp']}")
+                            else:
+                                logger.info(f"Other message received: {json.dumps(data, indent=2)}")
+                    except json.JSONDecodeError as e:
+                        logger.error(f"Error decoding JSON: {str(e)}")
+                        logger.debug(f"Problematic line: {line}")
+                        continue
                     except Exception as e:
                         logger.error(f"Error processing message: {str(e)}")
                         continue

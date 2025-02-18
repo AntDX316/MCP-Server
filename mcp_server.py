@@ -249,7 +249,6 @@ async def sse(request: Request):
         }
         logger.info(f"Sending capabilities: {json.dumps(capabilities, indent=2)}")
         yield {
-            "event": "message",
             "data": json.dumps(capabilities)
         }
         
@@ -258,11 +257,13 @@ async def sse(request: Request):
             try:
                 await asyncio.sleep(5)
                 heartbeat = {
-                    "event": "heartbeat",
-                    "data": json.dumps({"timestamp": datetime.now().isoformat()})
+                    "type": "heartbeat",
+                    "timestamp": datetime.now().isoformat()
                 }
                 logger.info(f"Sending heartbeat: {json.dumps(heartbeat, indent=2)}")
-                yield heartbeat
+                yield {
+                    "data": json.dumps(heartbeat)
+                }
             except Exception as e:
                 logger.error(f"Error in event stream: {str(e)}")
                 break
