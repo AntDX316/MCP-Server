@@ -206,6 +206,22 @@ async def get_status(hours: float = 1):
         "connection_history": history
     }
 
+@app.delete("/api/clients/{client_id}")
+async def disconnect_client(client_id: str):
+    """Disconnect a specific client"""
+    if client_id not in manager.active_connections:
+        raise HTTPException(status_code=404, detail="Client not found")
+    
+    try:
+        # Close the WebSocket connection
+        await manager.active_connections[client_id].close()
+        # Remove from manager
+        manager.disconnect(client_id)
+        return {"status": "success", "message": f"Client {client_id} disconnected"}
+    except Exception as e:
+        logger.error(f"Error disconnecting client {client_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 # Serve static files (will be used for the React frontend)
 app.mount("/", StaticFiles(directory="frontend/build", html=True), name="static")
 

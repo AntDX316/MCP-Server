@@ -1,16 +1,22 @@
 # MCP Server with Web UI
 
-A ModelContextProtocol server implementation with an easy-to-use web interface for configuration and monitoring.
+The MCP Server with Web UI is a powerful and user-friendly ModelContextProtocol server implementation that combines robust backend functionality with an elegant web interface.
+
+It features real-time client monitoring, WebSocket-based communication, and comprehensive configuration options through an intuitive dark-mode UI.
+
+The server supports SSL encryption, client connection management, and provides detailed metrics and charts for monitoring system performance.
+
+Built with Python and React, it's easily deployable via Docker for production use or can be run directly for development, making it ideal for both testing and production environments.
 
 ## Features
 
 - Full ModelContextProtocol implementation
 - Web-based configuration interface
 - Real-time client monitoring
+- Client connection management with manual disconnection capability
 - WebSocket-based communication
 - Configurable server settings
 - SSL support
-- Client connection management
 - Dark mode UI
 - Real-time metrics and charts
 
@@ -115,6 +121,56 @@ The server starts with these default settings:
 - Max Context Length: 4096
 - Debug Mode: False
 - SSL: Disabled
+
+## API Documentation
+
+### Client Management
+
+#### List Connected Clients
+```
+GET /api/clients
+```
+Returns a list of all currently connected clients with their connection details.
+
+#### Disconnect Client
+```
+DELETE /api/clients/{client_id}
+```
+Forcefully disconnects a specific client from the server. The client_id is the UUID assigned when the client first connects.
+
+### Server Status
+
+#### Get Server Status
+```
+GET /api/status
+```
+Returns current server status including:
+- Active client count
+- Server uptime
+- Version information
+- Connection history
+
+Query Parameters:
+- `hours` (float, default: 1): Number of hours of connection history to retrieve
+
+### Settings Management
+
+#### Update Settings
+```
+POST /api/settings
+```
+Updates server and MCP configuration settings. Requires a JSON body with server and MCP configuration parameters.
+
+### WebSocket Endpoint
+
+#### Client Connection
+```
+WS /ws/{client_id}
+```
+WebSocket endpoint for client connections. Supports:
+- Real-time communication
+- Ping/pong heartbeat
+- Automatic disconnection on timeout
 
 ## Development
 
