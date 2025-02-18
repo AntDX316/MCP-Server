@@ -303,12 +303,14 @@ if __name__ == "__main__":
             port=config.server.port,
             ssl_keyfile=config.server.ssl_key_path,
             ssl_certfile=config.server.ssl_cert_path,
-            log_level="debug" if config.server.debug else "info"
+            log_level="debug" if config.server.debug else "info",
+            reload=True  # Enable auto-reload
         )
     else:
         uvicorn.run(
             app,
             host=config.server.host,
             port=config.server.port,
-            log_level="debug" if config.server.debug else "info"
+            log_level="debug" if config.server.debug else "info",
+            reload=True  # Enable auto-reload
         ) 

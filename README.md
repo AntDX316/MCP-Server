@@ -19,16 +19,14 @@ Built with Python and React, it's easily deployable via Docker for production us
 - SSL support
 - Dark mode UI
 - Real-time metrics and charts
+- Auto-reload during development
 
 ## Requirements
 
 - Python 3.8+
-- Node.js 14+ (for frontend development)
-- npm (usually comes with Node.js)
+- Node.js 14+ (for frontend development only)
 
-## Installation & Setup
-
-### Option 1: Direct Installation (Development)
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -41,51 +39,33 @@ Built with Python and React, it's easily deployable via Docker for production us
    pip install -r requirements.txt
    ```
 
-3. Set up the frontend:
-   ```bash
-   cd frontend
-   npm install
-   npm run build
-   cd ..
-   ```
-
-### Option 2: Docker Installation (Recommended for Production)
-
-1. Make sure Docker and Docker Compose are installed
-2. Clone the repository
-3. Run:
-   ```bash
-   docker-compose up --build
-   ```
+3. The frontend is pre-built and ready to use. No additional setup required!
 
 ## Running the Server
 
-### Development Mode
+### Quick Start
+Simply run:
+```bash
+python server.py
+```
 
-1. Start the backend server:
-   ```bash
-   python server.py
-   ```
-   The server will run on http://localhost:8000
+This will:
+- Start the backend server with auto-reload enabled
+- Serve the pre-built frontend
+- Make everything available at http://localhost:8000
 
-2. (Optional) For frontend development with hot reloading:
-   ```bash
-   cd frontend
-   npm start
-   ```
-   The development server will run on http://localhost:3000
+The server features auto-reload, so any changes to Python files will automatically restart the server.
 
-### Production Mode
+### Development Notes
 
-1. Using Docker (recommended):
-   ```bash
-   docker-compose up --build
-   ```
+- **Backend Changes**: The server will automatically reload when you modify any Python files
+- **Frontend Changes**: If you need to modify the frontend:
+  1. Make changes in the `frontend/src` directory
+  2. Run `cd frontend && npm install` (first time only)
+  3. Run `npm run build` to rebuild the frontend
+  4. The server will serve the new build automatically
 
-2. Direct running:
-   ```bash
-   python server.py
-   ```
+You don't need to run `npm start` for normal usage as the frontend is pre-built and served by the Python server.
 
 ### Testing the Connection
 
@@ -105,11 +85,7 @@ The server can be configured through:
 
 2. Direct configuration file:
    - Edit `config.json` in the root directory
-   - Restart the server to apply changes
-
-3. Environment variables:
-   - Set environment variables before starting the server
-   - Available in Docker using the `environment` section in `docker-compose.yml`
+   - Server will auto-reload to apply changes
 
 ### Default Configuration
 
