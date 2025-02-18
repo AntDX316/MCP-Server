@@ -167,6 +167,37 @@ class SettingsUpdate(BaseModel):
     server: ServerSettingsUpdate
     mcp: MCPSettingsUpdate
 
+@app.get("/api/settings")
+async def get_settings():
+    """Get current server and MCP settings"""
+    try:
+        # Convert Pydantic models to dictionaries for JSON serialization
+        server_config = {
+            "host": config.server.host,
+            "port": config.server.port,
+            "debug": config.server.debug,
+            "max_connections": config.server.max_connections,
+            "ping_timeout": config.server.ping_timeout,
+            "ssl_enabled": config.server.ssl_enabled,
+            "ssl_cert_path": config.server.ssl_cert_path or "",
+            "ssl_key_path": config.server.ssl_key_path or ""
+        }
+        
+        mcp_config = {
+            "protocol_version": config.mcp.protocol_version,
+            "max_context_length": config.mcp.max_context_length,
+            "default_temperature": config.mcp.default_temperature,
+            "max_tokens": config.mcp.max_tokens
+        }
+        
+        return {
+            "server": server_config,
+            "mcp": mcp_config
+        }
+    except Exception as e:
+        logger.error(f"Error getting settings: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.post("/api/settings")
 async def update_settings(settings: SettingsUpdate):
     """Update server and MCP settings"""
@@ -298,19 +329,19 @@ if __name__ == "__main__":
             
         logger.info("Starting server with SSL enabled")
         uvicorn.run(
-            app,
+            "server:app",
             host=config.server.host,
             port=config.server.port,
             ssl_keyfile=config.server.ssl_key_path,
             ssl_certfile=config.server.ssl_cert_path,
             log_level="debug" if config.server.debug else "info",
-            reload=True  # Enable auto-reload
+            reload=True
         )
     else:
         uvicorn.run(
-            app,
+            "server:app",
             host=config.server.host,
             port=config.server.port,
             log_level="debug" if config.server.debug else "info",
-            reload=True  # Enable auto-reload
+            reload=True
         ) 
