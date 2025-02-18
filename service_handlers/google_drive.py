@@ -8,6 +8,7 @@ from googleapiclient.http import MediaIoBaseUpload
 import io
 import json
 from .base import BaseServiceHandler
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +24,11 @@ class GoogleDriveHandler(BaseServiceHandler):
         """Initialize Google Drive client"""
         try:
             credentials = None
-            token_path = f"tokens/google_drive_{self.service_id}.json"
+            # Create tokens directory if it doesn't exist
+            tokens_dir = Path("tokens")
+            tokens_dir.mkdir(exist_ok=True)
+            
+            token_path = tokens_dir / f"google_drive_{self.service_id}.json"
 
             # Load existing token
             try:

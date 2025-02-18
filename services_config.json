@@ -8,8 +8,11 @@
         "config": {}
     },
     "google_drive": {
-        "enabled": false,
-        "config": {}
+        "enabled": true,
+        "config": {
+            "client_id": "284909663412-tl0g0kq2reockauk07rg22h7ck59dome.apps.googleusercontent.com",
+            "client_secret": "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"
+        }
     },
     "azure": {
         "enabled": false,

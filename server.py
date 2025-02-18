@@ -335,7 +335,7 @@ if __name__ == "__main__":
             ssl_keyfile=config.server.ssl_key_path,
             ssl_certfile=config.server.ssl_cert_path,
             log_level="debug" if config.server.debug else "info",
-            reload=True
+            reload=config.server.debug
         )
     else:
         uvicorn.run(
@@ -343,5 +343,5 @@ if __name__ == "__main__":
             host=config.server.host,
             port=config.server.port,
             log_level="debug" if config.server.debug else "info",
-            reload=True
+            reload=config.server.debug
         ) 
