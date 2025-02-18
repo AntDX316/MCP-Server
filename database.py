@@ -41,7 +41,7 @@ def add_connection_record(connections: int, timestamp: datetime = None):
     finally:
         db.close()
 
-def get_connection_history(hours: int = 24):
+def get_connection_history(hours: int = 1):
     """Get connection history for the last n hours"""
     db = SessionLocal()
     try:
@@ -54,12 +54,15 @@ def get_connection_history(hours: int = 24):
             .order_by(ConnectionRecord.timestamp.asc())\
             .all()
         
-        return [{"timestamp": record.timestamp.isoformat(), "connections": record.connections}
-                for record in records]
+        # Ensure UTC timezone is explicitly set in the response
+        return [{
+            "timestamp": record.timestamp.replace(tzinfo=timezone.utc).isoformat(),
+            "connections": record.connections
+        } for record in records]
     finally:
         db.close()
 
-def cleanup_old_records(hours: int = 24):
+def cleanup_old_records(hours: int = 1):
     """Delete records older than n hours"""
     db = SessionLocal()
     try:

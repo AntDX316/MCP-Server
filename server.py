@@ -148,14 +148,23 @@ async def get_clients():
     return manager.get_active_clients()
 
 @app.get("/api/status")
-async def get_status():
+async def get_status(hours: float = 1):
     """Get server status"""
+    history = db.get_connection_history(hours=hours)
+    # Ensure timestamps are in ISO format with timezone
+    for entry in history:
+        if isinstance(entry["timestamp"], datetime):
+            entry["time"] = entry["timestamp"].isoformat()
+        else:
+            entry["time"] = entry["timestamp"]
+        del entry["timestamp"]
+
     return {
         "status": "running",
         "active_clients": len(manager.active_connections),
         "uptime": manager.get_uptime(),
         "version": "1.0.0",
-        "connection_history": manager.get_connection_history()
+        "connection_history": history
     }
 
 # Serve static files (will be used for the React frontend)
