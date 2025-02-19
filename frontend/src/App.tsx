@@ -72,7 +72,7 @@ function App() {
         <DrawerHeader>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Typography variant="h6" component="span">MCP</Typography>
-            <Typography variant="caption" sx={{ opacity: 0.7 }}>v1.0</Typography>
+            <Typography variant="caption" sx={{ opacity: 0.7 }}>v1.0.0</Typography>
           </Box>
         </DrawerHeader>
         <List>
