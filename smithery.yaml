@@ -1,0 +1,21 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - googleClientId
+      - googleClientSecret
+    properties:
+      googleClientId:
+        type: string
+        description: Google OAuth 2.0 client ID for Google Drive integration
+      googleClientSecret:
+        type: string
+        description: Google OAuth 2.0 client secret for Google Drive integration
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({command: 'python', args: ['mcp_server.py'], env: {GOOGLE_CLIENT_ID: config.googleClientId, GOOGLE_CLIENT_SECRET: config.googleClientSecret}})
