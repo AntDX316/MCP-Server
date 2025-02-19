@@ -22,6 +22,7 @@ import SlackIcon from '@mui/icons-material/AlternateEmail'
 import CloudIcon from '@mui/icons-material/Cloud'
 import CodeIcon from '@mui/icons-material/Code'
 import { getServiceConfig, updateServiceConfig, toggleService } from '../api/client'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 interface Service {
   id: string
@@ -302,10 +303,24 @@ function Services() {
         onClose={() => setConfigOpen(false)}
         maxWidth="sm"
         fullWidth
+        PaperProps={{
+          sx: {
+            background: 'rgba(18, 18, 18, 0.85)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            borderRadius: 2,
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
+          }
+        }}
       >
         {selectedService && (
           <>
-            <DialogTitle>
+            <DialogTitle
+              sx={{
+                background: 'rgba(255, 255, 255, 0.03)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.12)'
+              }}
+            >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 {selectedService.icon}
                 <Typography variant="h6" sx={{ ml: 1 }}>
@@ -314,21 +329,34 @@ function Services() {
               </Box>
             </DialogTitle>
             <DialogContent>
-              <Box sx={{ mb: 3, mt: 1, p: 2, bgcolor: 'background.default', borderRadius: 1 }}>
+              <Box sx={{ 
+                mb: 3, 
+                mt: 1, 
+                p: 2, 
+                bgcolor: 'rgba(255, 255, 255, 0.03)',
+                borderRadius: 1,
+                border: '1px solid rgba(255, 255, 255, 0.08)'
+              }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                   <Typography variant="body2" color="info.main">
                     To configure {selectedService.name} integration:
                   </Typography>
                 </Box>
                 {selectedService.instructions.map((instruction, index) => (
-                  <Typography key={index} variant="body2" sx={{ ml: 2 }}>
+                  <Typography key={index} variant="body2" sx={{ ml: 2, color: 'rgba(255, 255, 255, 0.7)' }}>
                     {index + 1}. {instruction}
                   </Typography>
                 ))}
                 <Button
                   variant="text"
                   size="small"
-                  sx={{ mt: 1 }}
+                  sx={{ 
+                    mt: 1,
+                    color: 'primary.main',
+                    '&:hover': {
+                      background: 'rgba(144, 202, 249, 0.08)'
+                    }
+                  }}
                   onClick={() => {
                     const docUrls: Record<string, string> = {
                       github: 'https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens',
@@ -358,6 +386,37 @@ function Services() {
                       [field.name]: e.target.value,
                     }))
                   }
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'rgba(255, 255, 255, 0.12)',
+                      },
+                      '&:hover fieldset': {
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: 'primary.main',
+                      },
+                      backgroundColor: 'rgba(255, 255, 255, 0.03)'
+                    },
+                    '& .MuiInputLabel-root': {
+                      color: 'rgba(255, 255, 255, 0.7)'
+                    },
+                    '& .MuiInputBase-input': {
+                      color: 'rgba(255, 255, 255, 0.9)'
+                    }
+                  }}
+                  InputProps={{
+                    endAdornment: field.sensitive && (
+                      <IconButton
+                        size="small"
+                        onClick={() => setShowSensitive(!showSensitive)}
+                        sx={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                      >
+                        {showSensitive ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    )
+                  }}
                 />
               ))}
 
@@ -366,18 +425,52 @@ function Services() {
                   variant="text"
                   size="small"
                   onClick={() => setShowSensitive(!showSensitive)}
-                  sx={{ mt: 1 }}
+                  sx={{ 
+                    mt: 1,
+                    color: 'primary.main',
+                    '&:hover': {
+                      background: 'rgba(144, 202, 249, 0.08)'
+                    }
+                  }}
                 >
                   {showSensitive ? 'Hide' : 'Show'} sensitive fields
                 </Button>
               )}
             </DialogContent>
-            <DialogActions>
-              <Button onClick={() => setConfigOpen(false)}>Cancel</Button>
+            <DialogActions sx={{ 
+              borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+              background: 'rgba(255, 255, 255, 0.03)',
+              px: 3,
+              py: 2
+            }}>
+              <Button 
+                onClick={() => setConfigOpen(false)}
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  '&:hover': {
+                    background: 'rgba(255, 255, 255, 0.08)'
+                  }
+                }}
+              >
+                Cancel
+              </Button>
               <Button
                 variant="contained"
                 onClick={handleSave}
-                sx={{ minWidth: 150 }}
+                sx={{ 
+                  minWidth: 150,
+                  background: 'linear-gradient(45deg, rgba(144, 202, 249, 0.6) 30%, rgba(30, 136, 229, 0.6) 90%)',
+                  backdropFilter: 'blur(5px)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+                  boxShadow: '0 3px 10px rgba(144, 202, 249, 0.2)',
+                  '&:hover': {
+                    background: 'linear-gradient(45deg, rgba(144, 202, 249, 0.8) 30%, rgba(30, 136, 229, 0.8) 90%)',
+                    boxShadow: '0 5px 15px rgba(144, 202, 249, 0.3)'
+                  }
+                }}
               >
                 Save Configuration
               </Button>
