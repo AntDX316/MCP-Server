@@ -12,6 +12,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard'
 import PeopleIcon from '@mui/icons-material/People'
 import SettingsIcon from '@mui/icons-material/Settings'
 import ExtensionIcon from '@mui/icons-material/Extension'
+import Typography from '@mui/material/Typography'
 
 // Import pages (we'll create these next)
 import Dashboard from './pages/Dashboard'
@@ -68,7 +69,12 @@ function App() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader>MCP</DrawerHeader>
+        <DrawerHeader>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography variant="h6" component="span">MCP</Typography>
+            <Typography variant="caption" sx={{ opacity: 0.7 }}>v1.0</Typography>
+          </Box>
+        </DrawerHeader>
         <List>
           {menuItems.map((item) => (
             <ListItem key={item.text} disablePadding>
