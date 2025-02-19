@@ -255,6 +255,23 @@ function Services() {
                 <Typography variant="body2" color="text.secondary">
                   {service.description}
                 </Typography>
+                <Button
+                  variant="text"
+                  size="small"
+                  sx={{ mt: 1 }}
+                  onClick={() => {
+                    const docUrls: Record<string, string> = {
+                      github: 'https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens',
+                      slack: 'https://api.slack.com/authentication/basics',
+                      google_drive: 'https://developers.google.com/drive/api/quickstart/python',
+                      azure: 'https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app',
+                      vscode: 'https://code.visualstudio.com/api/get-started/your-first-extension'
+                    };
+                    window.open(docUrls[service.id], '_blank');
+                  }}
+                >
+                  CLICK HERE FOR DETAILED DOCUMENTATION
+                </Button>
               </Box>
               <Box sx={{ ml: 2, display: 'flex', alignItems: 'center' }}>
                 {service.configFields.length > 0 && (
@@ -307,9 +324,18 @@ function Services() {
                   variant="text"
                   size="small"
                   sx={{ mt: 1 }}
-                  onClick={() => window.open('https://github.com/AntDX316/MCP-Server', '_blank')}
+                  onClick={() => {
+                    const docUrls: Record<string, string> = {
+                      github: 'https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens',
+                      slack: 'https://api.slack.com/authentication/basics',
+                      google_drive: 'https://developers.google.com/drive/api/quickstart/python',
+                      azure: 'https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app',
+                      vscode: 'https://code.visualstudio.com/api/get-started/your-first-extension'
+                    };
+                    window.open(docUrls[selectedService.id], '_blank');
+                  }}
                 >
-                  Click here for detailed documentation
+                  CLICK HERE FOR DETAILED DOCUMENTATION
                 </Button>
               </Box>
 
