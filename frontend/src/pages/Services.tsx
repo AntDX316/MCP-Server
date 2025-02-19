@@ -120,13 +120,18 @@ const services: Service[] = [
     icon: <CodeIcon />,
     description: 'Enable VS Code extension support',
     enabled: false,
-    configFields: [],
+    configFields: [
+      { name: 'workspaceFolder', type: 'text', label: 'Workspace Folder Path' },
+      { name: 'serverUrl', type: 'text', label: 'MCP Server URL', sensitive: false },
+    ],
     instructions: [
-      'When enabled, this creates a .vscode folder in your workspace',
-      'The integration adds MCP-specific settings to your VS Code environment',
-      'You can find these settings in .vscode/mcp-settings.json',
-      'No additional configuration is required - just enable the integration',
-      'The extension will automatically connect to your MCP server',
+      'Install Visual Studio Code if you haven\'t already',
+      'Open VS Code and go to the Extensions view (Ctrl+Shift+X)',
+      'Search for "MCP Server" in the Extensions Marketplace',
+      'Click Install to add the MCP Server extension',
+      'Enter your workspace folder path where .vscode settings will be created',
+      'Optionally customize the MCP Server URL (defaults to ws://localhost:8000)',
+      'The extension will automatically connect to your MCP server'
     ],
   },
 ]
