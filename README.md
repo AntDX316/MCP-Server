@@ -1,5 +1,7 @@
 # MCP Server for Cursor
 
+[![smithery badge](https://smithery.ai/badge/@AntDX316/MCP-Server)](https://smithery.ai/server/@AntDX316/MCP-Server)
+
 A Model Context Protocol (MCP) server implementation for Cursor IDE integration, providing a modern web dashboard and tools through SSE (Server-Sent Events) and WebSocket connections.
 
 ## Features
@@ -25,6 +27,15 @@ A Model Context Protocol (MCP) server implementation for Cursor IDE integration,
 
 ## Installation
 
+### Installing via Smithery
+
+To install MCP Server for Cursor for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@AntDX316/MCP-Server):
+
+```bash
+npx -y @smithery/cli install @AntDX316/MCP-Server --client claude
+```
+
+### Manual Installation
 1. Clone the repository:
 ```bash
 git clone <repository-url>
